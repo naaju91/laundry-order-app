@@ -5,6 +5,7 @@ A simple Flutter application to manage laundry orders using SQLite.
 Allows adding orders, updating status, filtering by status, searching, and viewing total revenue.
 
 Features :
+
 Add new laundry orders
 Update order status (Received → Washing → Ready → Delivered)
 Search orders by customer name or order ID
@@ -13,14 +14,18 @@ Simple dashboard with total number of orders and revenue
 Local storage using SQLite
 
 Requirements:
+
 Flutter SDK ≥ 3.0
+
 Android Studio or VS Code
+
 Android emulator
 
 Installation & Running:
 
 Clone the repository:
 git clone https://github.com/naaju91/laundry-order-app.git
+
 cd laundry-order-app
 
 Install dependencies:
