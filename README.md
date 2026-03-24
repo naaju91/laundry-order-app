@@ -1,99 +1,67 @@
-# Laundry Order Management App (Flutter + SQLite)
 
-A simple Flutter application to manage laundry orders with local database support using SQLite and state management using Provider.
+Laundry Order App
 
----
+A simple Flutter application to manage laundry orders using SQLite.
+Allows adding orders, updating status, filtering by status, searching, and viewing total revenue.
 
-## Features
+Features :
+Add new laundry orders
+Update order status (Received → Washing → Ready → Delivered)
+Search orders by customer name or order ID
+Filter orders by status
+Simple dashboard with total number of orders and revenue
+Local storage using SQLite
 
-* Add new laundry orders
-* View all orders
-* Update order status:
-* Received → Washing → Ready → Delivered
-* Search orders by name or Order ID
-* Filter orders by status
-* Dashboard:
-  * Total Orders
-  * Total Revenue
-* Local data storage using SQLite
+Requirements:
+Flutter SDK ≥ 3.0
+Android Studio or VS Code
+Android emulator
 
----
+Installation & Running:
 
-## Technologies Used
+Clone the repository:
+git clone https://github.com/naaju91/laundry-order-app.git
+cd laundry-order-app
 
-* Flutter
-* Dart
-* SQLite (sqflite)
-* Provider (State Management)
-
----
-
-## Project Setup
-
-### Clone the repository
-
-bash
-git clone <your-repo-url>
-cd <project-folder>
-
----
-
-### 2Install dependencies
-
-bash
+Install dependencies:
 flutter pub get
 
----
+Run the app:
+On Android emulator:
 
-#### Run on Android Emulator
-
-bash
-flutter emulators --launch (device_id)
+flutter emulators --launch <device_id>
 flutter run
 
-#### Run on Chrome (Web - No SQLite support)
 
-bash
-flutter run -d chrome
-
-
-## Project Structure
-
+Project Structure :
 lib/
-│
-├── models/
-│   └── order.dart
-│
-├── services/
-│   ├── db_helper.dart
-│   └── order_provider.dart
-│
-├── screens/
-│   ├── order_list_screen.dart
-│   └── add_order_screen.dart
-│
-└── main.dart
+├─ main.dart
+├─ models/
+│   └─ order.dart
+├─ screens/
+│   ├─ order_list_screen.dart
+│   └─ add_order_screen.dart
+└─ services/
+    ├─ db_helper.dart
+    └─ order_provider.dart
+
+main.dart – Entry point
+models/order.dart – Order model
+screens/ – Flutter screens for list and adding orders
+services/db_helper.dart – SQLite database helper
+services/order_provider.dart – Provider for state management
 
 
-## 💾 Database Info
+Database Structure:
 
-* Database: SQLite
-* Table: `orders`
-* Stored locally on device
+Table: orders
 
-| Column Name | Type    | Description                                        |
-| ----------- | ------- | -------------------------------------------------- |
-| `id`        | INTEGER | Primary key (auto-increment)                       |
-| `name`      | TEXT    | Customer name                                      |
-| `phone`     | TEXT    | Customer phone number                              |
-| `service`   | TEXT    | Type of service (e.g., Wash, Dry Clean)            |
-| `items`     | INTEGER | Number of items                                    |
-| `price`     | REAL    | Price per item                                     |
-| `total`     | REAL    | Total amount (items × price)                       |
-| `status`    | TEXT    | Order status (Received, Washing, Ready, Delivered) |
-
-
-
-## Author
-
-Fathimathu Najiya
+id	INTEGER	Auto-increment primary key
+orderId	TEXT	Unique order identifier (ORD + timestamp)
+name	TEXT	Customer name
+phone	TEXT	Customer phone number
+service	TEXT	Service type (Wash or Dry Clean)
+items	INTEGER	Number of items
+price	REAL	Price per item
+total	REAL	Total price (items × price)
+status	TEXT	Order status (Received, Washing, Ready, Delivered)
