@@ -44,7 +44,7 @@ flutter pub get
 
 Run the app:
 
-On Android emulator:
+By Android emulator:
 
 flutter emulators --launch <device_id>
 
